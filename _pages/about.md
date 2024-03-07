@@ -11,4 +11,4 @@ Hi there, my name is Perry and welcome! I'm currently a 2nd year undergrad stude
 
 Currently looking for CSE and general engineering internships for Summer 2024!
 
-Page is currently under construction, so visit my GitHub profile for projects!
+Subpages currently under construction, so visit my GitHub profile on the left for projects!
