@@ -247,7 +247,7 @@ defaults:
       type: research
     values:
       layout: single
-      author_profile: false
+      author_profile: true
       share: true
       comments: true
   # _projects
