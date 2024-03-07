@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Boring bio..."
+title: "Boring intro...💩"
 author_profile: true
 redirect_from:
   - /about/
