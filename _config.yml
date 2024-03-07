@@ -23,7 +23,7 @@ author:
   # Biographic information
   avatar           : "profile.png"
   name             : "Perry Chien"
-  pronouns         : # example: "she/her"
+  pronouns         : "he/him" # example: "she/her"
   bio              : ""
   location         : "Seattle, WA"
   employer         : "University of Washington"
