@@ -9,4 +9,4 @@ redirect_from:
 
 {% include base_path %}
 
-<embed src="/files/ChienPerry.pdf" type="application/pdf" width="100%" height="700px" />
+<embed src="/files/ChienPerry.pdf" type="application/pdf" width="100%" height="200px" />
