@@ -9,6 +9,4 @@ redirect_from:
 
 {% include base_path %}
 
-<embed src="/files/ChienPerry.pdf" type="application/pdf" width="100%" height="200px" />
-
-You can also [download the CV here](./files/ChienPerry.pdf)
+<embed src="/files/ChienPerry.pdf" type="application/pdf" width="100%" height="150px" />
