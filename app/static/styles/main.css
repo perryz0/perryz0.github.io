@@ -189,4 +189,32 @@ body {
     display: block;
     margin-bottom: 10px;
     color: #555;
+
+.education-list span {
+    display: block;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.hobbies-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+
+.hobby-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+
+}
+
+#map {
+    height: 600px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
