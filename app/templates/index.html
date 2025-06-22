@@ -27,16 +27,32 @@
                     <img src="./static/img/logo.svg" />
                 </div>
             </a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="/experiences">Experiences</a></li>
+                    <li><a href="/education">Education</a></li>
+                    <li><a href="/hobbies">Hobbies</a></li>
+                    <li><a href="/travel">Travel</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <div class="profile">
-        <div id="profile-picture" class="profile-picture">
-            <img src="./static/img/perry_mlh.jpg">
+    <div class="main-container">
+        <div class="profile-sidebar">
+            <div class="profile-picture">
+                <img src="./static/img/perry_mlh.jpg" alt="Perry Chien">
+            </div>
+            <h1>{{ title }}</h1>
+            <h2>(he/him)</h2>
         </div>
-        <h1>{{ title }}</h1>
-            <h2>About Me💩</h2>
-                <p>Hello! I'm Perry from Seattle, a rising Computer Science senior passionate about distributed systems and building cool stuff with MLH!!</p>
+        
+        <div class="content-area">
+            <h1>Welcome to My Portfolio!💩</h1>
+            <p>I'm Perry from Seattle, a rising Computer Science senior passionate about distributed systems and building cool stuff with MLH!!</p>
+            
+            <!-- Add more content sections here -->
+        </div>
     </div>
 </body>
 </html>
