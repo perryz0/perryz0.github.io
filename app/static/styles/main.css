@@ -168,7 +168,18 @@ body {
     padding: 0;
 }
 
+.education-list {
+    list-style: none;
+    padding: 0;
+}
+
 .experience-list li {
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #eee;
+}
+  
+.education-list li {
     margin-bottom: 25px;
     padding-bottom: 25px;
     border-bottom: 1px solid #eee;
@@ -179,8 +190,19 @@ body {
     margin-bottom: 0;
     padding-bottom: 0;
 }
+  
+.education-list li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
 
 .experience-list h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+  
+.education-list h3 {
     margin-top: 0;
     margin-bottom: 5px;
 }
@@ -189,4 +211,37 @@ body {
     display: block;
     margin-bottom: 10px;
     color: #555;
+
+.education-list span {
+    display: block;
+    margin-bottom: 10px;
+    color: #555;
+
+.education-list span {
+    display: block;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.hobbies-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+
+.hobby-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+
+}
+
+#map {
+    height: 600px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
