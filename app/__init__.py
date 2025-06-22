@@ -10,6 +10,15 @@ app = Flask(__name__)
 def index():
     return render_template('index.html', title="Perry Chien", url=os.getenv("URL"))
 
+@app.route('/hobbies')
+def hobbies():
+    hobby_items = [
+        {'title': 'Soccer', 'img': 'soccer.jpg'},
+        {'title': 'Music', 'img': 'music.jpg'},
+        {'title': 'Video Games', 'img': 'video_games.png'}
+    ]
+    return render_template('hobbies.html', title="Hobbies", hobbies=hobby_items, url=os.getenv("URL"))
+
 @app.route('/travel')
 def travel():
     locations = [
@@ -45,3 +54,4 @@ def travel():
         {"name": "Hangzhou, China", "lat": 30.2741, "lon": 120.1551}
     ]
     return render_template('travel.html', title="Travel Map", locations=locations, url=os.getenv("URL"))
+
