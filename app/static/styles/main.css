@@ -162,3 +162,31 @@ body {
     font-size: 50px;
     font-weight: 700;
 }
+
+.education-list {
+    list-style: none;
+    padding: 0;
+}
+
+.education-list li {
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #eee;
+}
+
+.education-list li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.education-list h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.education-list span {
+    display: block;
+    margin-bottom: 10px;
+    color: #555;
+}
