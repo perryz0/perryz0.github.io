@@ -162,3 +162,24 @@ body {
     font-size: 50px;
     font-weight: 700;
 }
+
+.education-list span {
+    display: block;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.hobbies-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+
+.hobby-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
