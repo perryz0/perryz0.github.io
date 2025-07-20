@@ -1,9 +1,10 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from dotenv import load_dotenv
 from peewee import *
 import datetime
 from playhouse.shortcuts import model_to_dict
+import re
 
 load_dotenv()
 app = Flask(__name__)
@@ -151,6 +152,19 @@ def timeline():
 
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
+    required_fields = ['name', 'email', 'content']
+    
+    # Ensure each required field is included and has a non-empty vLUE
+    for field in required_fields:
+        value = request.form.get(field)
+        if not value:
+            return jsonify({'error': f'Invalid {field}'}), 400
+
+    # Ensure valid email
+    valid_email = re.match(r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$", request.form['email'])
+    if not valid_email:
+        return jsonify({'error': 'Invalid email'}), 400
+
     name = request.form['name']
     email = request.form['email']
     content = request.form['content']
