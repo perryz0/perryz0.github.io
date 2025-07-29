@@ -6,9 +6,6 @@
 cd ~/MLH-Portfolio
 git fetch && git reset origin/main --hard
 
-# enter venv and update dependencies
-source python3-virtualenv/bin/activate
-pip install -r requirements.txt
-
-# restart systemd service
-sudo systemctl restart myportfolio
+# spin containers down to build fresh and deploy
+docker compose -f docker-compose.prod.yml down
+docker compose -f docker-compose.prod.yml up -d --build
