@@ -17,6 +17,7 @@
     <link lang='sass' rel="stylesheet" href="./static/styles/main.css">
     <link rel='icon' href='./static/img/favicon.ico' type='image/x-icon' />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/companion.css') }}">
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <title>Perry's MLH Portfolio!</title>
 </head>
@@ -75,5 +76,6 @@
                 .bindPopup(location.name);
         });
     </script>
+    <script defer src="{{ url_for('static', filename='js/companion.js') }}"></script>
 </body>
 </html>
