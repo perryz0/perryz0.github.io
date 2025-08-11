@@ -16,6 +16,7 @@
 
     <link lang='sass' rel="stylesheet" href="./static/styles/main.css">
     <link rel='icon' href='./static/img/favicon.ico' type='image/x-icon' />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/companion.css') }}">
     <title>Perry's Portfolio - {{ title }}</title>
 </head>
 
@@ -59,5 +60,6 @@
             </div>
         </div>
     </div>
+    <script defer src="{{ url_for('static', filename='js/companion.js') }}"></script>
 </body>
 </html> 
