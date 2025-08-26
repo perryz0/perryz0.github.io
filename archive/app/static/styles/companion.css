@@ -1,0 +1,15 @@
+#ascii-companion {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Courier New", monospace;
+  white-space: pre;
+  line-height: 1.05;
+  cursor: grab;
+  user-select: none;
+  z-index: 9999;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.04);
+}
+#ascii-companion:active { cursor: grabbing; }

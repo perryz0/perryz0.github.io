@@ -1,0 +1,30 @@
+---
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+---
+<html lang="en" class="bg-ink text-white antialiased">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Astro Portfolio</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Newsreader:opsz,wght@6..72,500;6..72,700&display=swap" rel="stylesheet" />
+
+    <!-- Global styles -->
+    <link rel="stylesheet" href="/src/styles/globals.css" />
+  </head>
+  <body class="aura-noise aura-vignette">
+    <Navigation />
+    <main class="mx-auto max-w-5xl px-6 pt-28 pb-24">
+      <slot />
+    </main>
+    <Footer />
+
+    <!-- ASCII companion (unchanged behavior) -->
+    <div id="ascii-companion" class="fixed left-4 bottom-4 z-50 pointer-events-none"></div>
+    <script src="/js/companion.js" defer></script>
+  </body>
+</html>

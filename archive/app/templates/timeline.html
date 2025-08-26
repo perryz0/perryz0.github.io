@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:title" content="Perry's Portfolio">
+    <meta property="og:description" content="Perry's MLH Portfolio">
+    <meta property="og:url" content="{{ url }}">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <link lang='sass' rel="stylesheet" href="./static/styles/main.css">
+    <link rel='icon' href='./static/img/favicon.ico' type='image/x-icon' />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/companion.css') }}">
+    <title>Perry's Portfolio - {{ title }}</title>
+</head>
+
+<body>
+    <header class="nav-bar">
+        <div class="nav-content">
+            <a href="/">
+                <div class="nav-logo">
+                    <img src="./static/img/logo.svg" />
+                </div>
+            </a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="/experiences">Experiences</a></li>
+                    <li><a href="/education">Education</a></li>
+                    <li><a href="/hobbies">Hobbies</a></li>
+                    <li><a href="/travel">Travel</a></li>
+                    <li><a href="/timeline">Timeline</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <div class="profile-sidebar">
+            <div class="profile-picture">
+                <img src="./static/img/perry_mlh.jpg" alt="Perry Chien">
+            </div>
+            <h1>Perry Chien</h1>
+            <h2>(he/him)</h2>
+        </div>
+        
+        <div class="content-area">
+            <h1>{{ title }}</h1>
+
+            <!-- Timeline Post Form -->
+            <div class="timeline-form">
+                <h2>Create a Timeline Post</h2>
+                <form id="timelineForm">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="content">Content:</label>
+                        <textarea id="content" name="content" required></textarea>
+                    </div>
+                    <button type="submit">Post</button>
+                </form>
+            </div>
+
+            <!-- Timeline Posts Display -->
+            <div class="timeline-posts">
+                <h2>Timeline Posts</h2>
+                <div id="postsContainer"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MD5 library for Gravatar email hash -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            loadPosts();
+
+            // Use form element directly for FormData
+            const form = document.getElementById('timelineForm');
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const formData = new FormData(form);
+                fetch('/api/timeline_post', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                    form.reset();
+                    loadPosts();
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            });
+        });
+
+        function loadPosts() {
+            fetch('/api/timeline_post')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('postsContainer');
+                container.innerHTML = '';
+
+                data.timeline_posts.forEach(post => {
+                    const postElement = createPostElement(post);
+                    container.appendChild(postElement);
+                });
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+
+        function createPostElement(post) {
+            const postDiv = document.createElement('div');
+            postDiv.className = 'timeline-post';
+
+            const emailHash = md5(post.email.toLowerCase().trim());
+            const gravatarUrl = `https://www.gravatar.com/avatar/${emailHash}?s=50&d=identicon`;
+
+            const date = new Date(post.created_at).toLocaleDateString();
+
+            postDiv.innerHTML = `
+                <div class="post-header">
+                    <img src="${gravatarUrl}" alt="Profile" class="post-avatar">
+                    <div class="post-info">
+                        <h3>${post.name}</h3>
+                        <span class="post-date">${date}</span>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>${post.content}</p>
+                </div>
+            `;
+
+            return postDiv;
+        }
+    </script>
+    <script defer src="{{ url_for('static', filename='js/companion.js') }}"></script>
+</body>
+</html>

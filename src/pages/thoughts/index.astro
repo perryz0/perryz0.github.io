@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+// Pull all posts under /src/pages/thoughts/*.mdx
+const posts = await Astro.glob('./*.mdx');
+// sort newest first if frontmatter has `date`
+posts.sort((a, b) => (new Date(b.frontmatter?.date || 0)).getTime() - (new Date(a.frontmatter?.date || 0)).getTime());
+---
+<BaseLayout>
+  <section>
+    <h1 class="text-3xl md:text-4xl font-semibold tracking-wide">Thoughts</h1>
+    <ul class="mt-6 space-y-4">
+      {posts.map((p) => (
+        <li class="border border-white/5 hover:border-cyan/30 rounded-xl p-4 bg-smoke/40">
+          <a href={p.url} class="block">
+            <div class="flex items-baseline justify-between gap-4">
+              <h2 class="text-xl">{p.frontmatter?.title || p.file?.split('/').pop()}</h2>
+              {p.frontmatter?.date && (
+                <time class="text-slate/70 text-sm">{new Date(p.frontmatter.date).toLocaleDateString()}</time>
+              )}
+            </div>
+            {p.frontmatter?.summary && <p class="text-slate/80 mt-1">{p.frontmatter.summary}</p>}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>

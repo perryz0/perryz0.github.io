@@ -1,0 +1,22 @@
+---
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/thoughts', label: 'Thoughts' },
+];
+const { pathname } = Astro.url;
+---
+<nav class="aura-glass fixed top-4 left-1/2 -translate-x-1/2 z-40 rounded-2xl px-4 py-2">
+  <ul class="flex gap-5 text-sm text-slate/90">
+    {links.map(l => (
+      <li>
+        <a
+          href={l.href}
+          class={`hover:underline underline-offset-4 ${pathname === l.href ? 'text-white border-b border-cyan/40' : ''}`}
+        >
+          {l.label}
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>
