@@ -1,13 +1,25 @@
-FROM python:3.9-slim-buster
+FROM node:18-alpine
 
 WORKDIR /myportfolio
 
-COPY requirements.txt .
+# Copy package files
+COPY package.json pnpm-lock.yaml ./
 
-RUN pip3 install -r requirements.txt
+# Install pnpm and dependencies
+RUN npm install -g pnpm
+RUN pnpm install --frozen-lockfile
 
+# Copy source code
 COPY . .
 
-CMD ["flask", "run", "--host=0.0.0.0"]
+# Build the Astro site
+RUN pnpm build
 
-EXPOSE 5000
+# Install serve to host static files
+RUN npm install -g serve
+
+# Expose port 4321 (Astro's default)
+EXPOSE 4321
+
+# Serve the built static files
+CMD ["serve", "-s", "dist", "-l", "4321"]
