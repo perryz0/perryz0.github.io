@@ -1,4 +1,6 @@
 ---
+import BaseLayout from "./BaseLayout.astro";
+
 export interface Props {
   title: string;
   date?: string;
@@ -12,21 +14,22 @@ const { title, date, summary } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title} • perry's web</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Global styles -->
+    <!-- Global styles imported in frontmatter -->
     <link rel="stylesheet" href="/src/styles/globals.css">
   </head>
   <body class="aura-noise aura-vignette">
     <div class="cursor-aura" id="cursor-aura"></div>
     
-    <!-- Back button -->
+    <!-- Custom navigation for blog posts -->
     <nav class="fixed top-4 left-6 z-40">
-      <a href="/thoughts" class="text-slate/70 hover:text-white transition-colors">
+      <a href="/thoughts/" class="text-slate/70 hover:text-white transition-colors">
         ← back to thoughts
       </a>
     </nav>
