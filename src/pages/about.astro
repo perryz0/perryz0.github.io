@@ -2,23 +2,33 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 <BaseLayout>
-  <article class="prose prose-invert prose-slate max-w-3xl">
-    <h1>About</h1>
-    <p>
-      Short bio. What you enjoy building, a sentence on your values, and what you’re exploring now.
-    </p>
+  <div class="flex gap-12 max-w-5xl mx-auto">
+    <article class="prose prose-invert prose-slate flex-1">
+      <h1>about</h1>
+      <p>
+        Short bio. What you enjoy building, a sentence on your values, and what you're exploring now.
+      </p>
 
-    <h2>Experience (brief)</h2>
+    <h2>experience</h2>
     <ul>
-      <li><strong>Role @ Company</strong> — 2024–present · one-liner impact</li>
-      <li><strong>Role @ Company</strong> — 2023–2024 · one-liner impact</li>
+      <li><strong>Production Engineer Fellow @ Meta</strong> — 2025 · one-liner impact</li>
+      <li><strong>Research @ UW Systems Lab</strong> — 2025–present · one-liner impact</li>
     </ul>
 
-    <h2>Elsewhere</h2>
-    <p>
-      <a href="mailto:you@example.com">Email</a> ·
-      <a href="https://github.com/yourhandle">GitHub</a> ·
-      <a href="https://www.linkedin.com/in/yourhandle">LinkedIn</a>
-    </p>
-  </article>
+      <h2>elsewhere</h2>
+      <p>
+        <a href="mailto:peichi1@uw.edu">Email</a> ·
+        <a href="https://github.com/perryz0">GitHub</a> ·
+        <a href="https://www.linkedin.com/in/peichi1">LinkedIn</a>
+      </p>
+    </article>
+    
+    <div class="flex-shrink-0 hidden md:block">
+      <img 
+        src="/img/wild.jpg" 
+        alt="Perry Chien" 
+        class="w-64 h-80 object-cover rounded-lg border-2 border-cyan/20 shadow-aura"
+      />
+    </div>
+  </div>
 </BaseLayout>
