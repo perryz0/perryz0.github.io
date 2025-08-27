@@ -1,0 +1,70 @@
+/* src/styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./aura.css";
+
+/* Base */
+html, body {
+  background: var(--ink);
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+:root {
+    --font-ui: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+    --font-serif: "Sora", ui-sans-serif, system-ui;
+    color-scheme: dark;
+  }
+  
+  body { font-family: var(--font-ui); }
+  h1,h2,h3,h4,h5,h6 { font-family: var(--font-serif); letter-spacing: -0.02em; }
+  h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.1;
+  }  
+
+/* Focus */
+:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
+/* Links */
+a { color: inherit; }
+a:hover { text-decoration: underline; text-underline-offset: 2px; }
+
+.cursor-aura {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    pointer-events: none;
+    background: radial-gradient(
+      circle 50px at var(--x, 50%) var(--y, 50%),
+      rgba(92,225,230,0.08),
+      transparent 70%
+    );
+    transition: background 0.1s;
+  }
+
+/* Portrait animations */
+.portrait-enter {
+  opacity: 0;
+  transform: scale(0.80);
+  transition: all 1.2s ease-out;
+}
+
+.portrait-enter.loaded {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.portrait-hover {
+  transition: transform 0.4s ease-out;
+}
+
+.portrait-hover:hover {
+  transform: scale(1.01);
+}  

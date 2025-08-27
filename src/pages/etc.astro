@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Accordion from "../components/Accordion.astro";
+import { etcItems } from "../data/etc";
+---
+<BaseLayout>
+  <div class="max-w-3xl mx-auto">
+    <h1 class="text-3xl md:text-4xl font-semibold tracking-wide mb-8">etc</h1>
+    <p class="text-slate/90 mb-12">
+      foobar ¯\_(ツ)_/¯
+    </p>
+
+    <div class="space-y-1">
+      {etcItems.map((item) => (
+        <Accordion item={item} />
+      ))}
+    </div>
+  </div>
+</BaseLayout>

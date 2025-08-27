@@ -1,0 +1,66 @@
+---
+export interface Props {
+  title: string;
+  date?: string;
+  summary?: string;
+}
+
+const { title, date, summary } = Astro.props;
+---
+<html lang="en" class="bg-ink text-white antialiased">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} • perry's web</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Global styles -->
+    <link rel="stylesheet" href="/src/styles/globals.css">
+  </head>
+  <body class="aura-noise aura-vignette">
+    <div class="cursor-aura" id="cursor-aura"></div>
+    
+    <!-- Back button -->
+    <nav class="fixed top-4 left-6 z-40">
+      <a href="/thoughts" class="text-slate/70 hover:text-white transition-colors">
+        ← back to thoughts
+      </a>
+    </nav>
+
+    <main class="mx-auto max-w-3xl px-6 pt-28 pb-24">
+      <article class="prose prose-invert prose-slate max-w-none">
+        <header class="mb-12">
+          <h1 class="text-3xl md:text-4xl font-semibold tracking-wide mb-4">{title}</h1>
+          {date && (
+            <time class="text-slate/60 text-sm">
+              {new Date(date).toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+              })}
+            </time>
+          )}
+          {summary && (
+            <p class="text-slate/80 mt-4 text-lg leading-relaxed">{summary}</p>
+          )}
+        </header>
+
+        <div class="prose prose-invert prose-slate prose-lg max-w-none">
+          <slot />
+        </div>
+      </article>
+    </main>
+
+    <script>
+      const aura = document.getElementById("cursor-aura");
+      window.addEventListener("mousemove", e => {
+        aura.style.setProperty("--x", `${e.clientX}px`);
+        aura.style.setProperty("--y", `${e.clientY}px`);
+      });
+    </script>
+  </body>
+</html>

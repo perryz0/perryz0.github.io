@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Accordion from "../components/Accordion.astro";
+import { experiences } from "../data/experiences";
+---
+<BaseLayout>
+  <div class="flex gap-12 max-w-5xl mx-auto">
+    <article class="prose prose-invert prose-slate flex-1">
+      <h1 class="text-5xl md:text-7xl">about</h1>
+      <p>
+        Hi! I'm a 4th year computer science at the University of Washington in Seattle. Graduating spring/fall '26. Interested in distributed systems, drones, + machine learning, though I'm just getting into it! Thanks for checking my page, more soon maybe :)
+      </p>
+
+      <div class="mt-16">
+        <h2 class="underline decoration-white/10 underline-offset-4">experience</h2>
+        <div class="space-y-1">
+          {experiences.map((experience) => (
+            <Accordion item={experience} />
+          ))}
+        </div>
+      </div>
+
+      <div class="mt-16">
+        <h2 class="underline decoration-white/10 underline-offset-4">elsewhere</h2>
+        <p>
+          <a href="mailto:peichi1@uw.edu">Email</a> ·
+          <a href="https://github.com/perryz0">GitHub</a> ·
+          <a href="https://www.linkedin.com/in/peichi1">LinkedIn</a>
+        </p>
+      </div>
+    </article>
+    
+    <div class="flex-shrink-0 hidden md:block">
+      <img 
+        src="/img/wild.jpg" 
+        alt="Perry Chien" 
+        class="w-64 h-80 object-cover rounded-lg border-2 border-cyan/20 shadow-aura portrait-enter portrait-hover"
+      />
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const portrait = document.querySelector('.portrait-enter');
+      if (portrait) {
+        const randomDelay = Math.floor(Math.random() * (1000 - 400 + 1)) + 400;
+        setTimeout(() => portrait.classList.add('loaded'), randomDelay);
+      }
+    });
+  </script>
+</BaseLayout>

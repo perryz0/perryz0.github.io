@@ -6,17 +6,19 @@ services:
     restart: always
     env_file:
       - .env
-    depends_on:
-      - mysql
+    # Remove mysql dependency since Astro is static
+    # depends_on:
+    #   - mysql
 
-  mysql:
-    container_name: mysql
-    image: mariadb
-    restart: always
-    env_file:
-      - .env
-    volumes:
-      - mydatabase:/var/lib/mysql
+  # You can remove mysql service if you don't need it anymore
+  # mysql:
+  #   container_name: mysql
+  #   image: mariadb
+  #   restart: always
+  #   env_file:
+  #     - .env
+  #   volumes:
+  #     - mydatabase:/var/lib/mysql
 
   nginx:
     container_name: nginx
@@ -34,5 +36,5 @@ services:
       - myportfolio
 
 volumes:
-  mydatabase:
+  # mydatabase:  # Remove if not using mysql
   nginx_secrets:

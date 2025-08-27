@@ -1,0 +1,38 @@
+---
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/globals.css";
+---
+<html lang="en" class="bg-ink text-white antialiased">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>perry's</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+    <!-- Global styles imported in frontmatter -->
+  </head>
+  <body class="aura-noise aura-vignette">
+  <div class="cursor-aura" id="cursor-aura"></div>
+    <Navigation />
+    <main class="mx-auto max-w-5xl px-6 pt-28 pb-24">
+      <slot />
+    </main>
+    <Footer />
+
+    <script>
+  const aura = document.getElementById("cursor-aura");
+  window.addEventListener("mousemove", e => {
+    aura.style.setProperty("--x", `${e.clientX}px`);
+    aura.style.setProperty("--y", `${e.clientY}px`);
+  });
+</script>
+
+  </body>
+</html>
