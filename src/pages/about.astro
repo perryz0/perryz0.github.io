@@ -9,11 +9,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         Short bio. What you enjoy building, a sentence on your values, and what you're exploring now.
       </p>
 
-    <h2>experience</h2>
-    <ul>
-      <li><strong>Production Engineer Fellow @ Meta</strong> — 2025 · one-liner impact</li>
-      <li><strong>Research @ UW Systems Lab</strong> — 2025–present · one-liner impact</li>
-    </ul>
+      <h2>experience</h2>
+      <ul>
+        <li><strong>Production Engineer Fellow @ Meta</strong> — 2025 · one-liner impact</li>
+        <li><strong>Research @ UW Systems Lab</strong> — 2025–present · one-liner impact</li>
+      </ul>
 
       <h2>elsewhere</h2>
       <p>
@@ -27,8 +27,18 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <img 
         src="/img/wild.jpg" 
         alt="Perry Chien" 
-        class="w-64 h-80 object-cover rounded-lg border-2 border-cyan/20 shadow-aura"
+        class="w-64 h-80 object-cover rounded-lg border-2 border-cyan/20 shadow-aura portrait-enter portrait-hover"
       />
     </div>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const portrait = document.querySelector('.portrait-enter');
+      if (portrait) {
+        const randomDelay = Math.floor(Math.random() * (1000 - 400 + 1)) + 400;
+        setTimeout(() => portrait.classList.add('loaded'), randomDelay);
+      }
+    });
+  </script>
 </BaseLayout>

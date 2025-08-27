@@ -48,4 +48,23 @@ a:hover { text-decoration: underline; text-underline-offset: 2px; }
     );
     transition: background 0.1s;
   }
-  
+
+/* Portrait animations */
+.portrait-enter {
+  opacity: 0;
+  transform: scale(0.80);
+  transition: all 1.2s ease-out;
+}
+
+.portrait-enter.loaded {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.portrait-hover {
+  transition: transform 0.4s ease-out;
+}
+
+.portrait-hover:hover {
+  transform: scale(1.01);
+}  

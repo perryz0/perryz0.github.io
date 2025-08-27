@@ -19,8 +19,18 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <img 
         src="/img/wild.jpg" 
         alt="Perry Chien" 
-        class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-2 border-cyan/20 shadow-aura"
+        class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-2 border-cyan/20 shadow-aura portrait-enter portrait-hover"
       />
     </div>
   </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const portrait = document.querySelector('.portrait-enter');
+      if (portrait) {
+        const randomDelay = Math.floor(Math.random() * (1000 - 400 + 1)) + 400;
+        setTimeout(() => portrait.classList.add('loaded'), randomDelay);
+      }
+    });
+  </script>
 </BaseLayout>
