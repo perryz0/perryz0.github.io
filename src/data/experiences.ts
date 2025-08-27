@@ -17,6 +17,6 @@ export const experiences: Item[] = [
         title: "Research",
         subtitle: "@ UW Systems Lab", 
         // period: "2025–present",
-        body: "Programmable scheduling abstractions for big data workloads (May 2025 - Present)"
+        body: "Programmable scheduling abstractions for dynamic workloads (May 2025 - Present)"
     }
 ];
