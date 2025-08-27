@@ -5,7 +5,7 @@ export const experiences: Item[] = [
         title: "Incoming Software Engineer Intern",
         subtitle: "@ Tesla",
         // period: "2025",
-        body: "Multi-channel communications platform and some AI agents? (Winter 2026)"
+        body: "Communications platform and AI agents? (Winter 2026)"
     },
     {
         title: "Production Engineer Fellow",
