@@ -13,15 +13,18 @@ html, body {
   text-rendering: optimizeLegibility;
 }
 
-/* Type (swap Newsreader for IBM Plex Serif if you prefer) */
 :root {
-  --font-ui: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-  --font-serif: "Newsreader", "IBM Plex Serif", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  color-scheme: dark;
-}
-
-body { font-family: var(--font-ui); }
-h1,h2,h3,h4,h5,h6 { font-family: var(--font-serif); }
+    --font-ui: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+    --font-serif: "Sora", ui-sans-serif, system-ui;
+    color-scheme: dark;
+  }
+  
+  body { font-family: var(--font-ui); }
+  h1,h2,h3,h4,h5,h6 { font-family: var(--font-serif); letter-spacing: -0.02em; }
+  h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.1;
+  }  
 
 /* Focus */
 :focus-visible {
@@ -32,3 +35,17 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-serif); }
 /* Links */
 a { color: inherit; }
 a:hover { text-decoration: underline; text-underline-offset: 2px; }
+
+.cursor-aura {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    pointer-events: none;
+    background: radial-gradient(
+      circle 50px at var(--x, 50%) var(--y, 50%),
+      rgba(92,225,230,0.08),
+      transparent 70%
+    );
+    transition: background 0.1s;
+  }
+  
