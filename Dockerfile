@@ -15,11 +15,8 @@ COPY . .
 # Build the Astro site
 RUN pnpm build
 
-# Install serve to host static files
-RUN npm install -g serve
+# Expose port 80 for nginx
+EXPOSE 80
 
-# Expose port 4321 (Astro's default)
-EXPOSE 4321
-
-# Serve the built static files
-CMD ["serve", "-s", "dist", "-l", "4321"]
+# Just keep the container running - nginx will serve the files
+CMD ["tail", "-f", "/dev/null"]
