@@ -19,7 +19,7 @@ RUN pnpm build
 RUN mkdir -p /usr/share/nginx/html
 
 # Copy the built files to nginx directory
-RUN cp -r dist/* /usr/share/nginx/html/
+RUN cp -r dist/. /usr/share/nginx/html/
 
 # Expose port 80 for nginx
 EXPOSE 80
