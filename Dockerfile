@@ -21,5 +21,5 @@ RUN npm install -g serve
 # Expose port 4321 (Astro's default)
 EXPOSE 4321
 
-# Serve the built static files with SPA mode
-CMD ["serve", "-s", "dist", "-l", "4321", "--single"]
+# Serve the built static files
+CMD ["serve", "-s", "dist", "-l", "4321"]
