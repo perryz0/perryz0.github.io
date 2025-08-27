@@ -37,7 +37,7 @@ const { item, defaultOpen = false } = Astro.props as {
 
     <!-- caret -->
     <svg
-      class="shrink-0 h-5 w-5 text-slate/70 transition-transform duration-300 group-open:rotate-180 font-black"
+      class="shrink-0 h-5 w-5 text-slate/70 transition-transform duration-300 group-open:rotate-0 rotate-180 font-black"
       viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
     >
       <path fill-rule="evenodd"
@@ -46,13 +46,10 @@ const { item, defaultOpen = false } = Astro.props as {
     </svg>
   </summary>
 
-  <!-- body: period + description IMMEDIATELY below title -->
   <div class="content">
-    <div class="text-sm text-slate/80 leading-relaxed">
-      {item.period && (
-        <p class="mt-1 text-xs md:text-sm text-slate/60">{item.period}</p>
-      )}
-      {item.body ? <div class="mt-2" set:html={item.body} /> : null}
+    <div class="pt-3 text-sm text-slate/80 leading-relaxed">
+      {item.period && <p class="text-xs md:text-sm text-slate/60 mb-2">{item.period}</p>}
+      {item.body ? <Fragment set:html={item.body} /> : null}
       <slot />
     </div>
   </div>
