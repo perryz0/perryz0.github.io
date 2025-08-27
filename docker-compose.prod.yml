@@ -7,7 +7,7 @@ services:
     env_file:
       - .env
     volumes:
-      - ./dist:/usr/share/nginx/html:ro
+      - myportfolio_dist:/usr/share/nginx/html
 
   nginx:
     container_name: nginx
@@ -21,9 +21,10 @@ services:
     volumes:
       - nginx_secrets:/etc/letsencrypt
       - ./user_conf.d:/etc/nginx/user_conf.d
-      - ./dist:/usr/share/nginx/html:ro
+      - myportfolio_dist:/usr/share/nginx/html:ro
     depends_on:
       - myportfolio
 
 volumes:
   nginx_secrets:
+  myportfolio_dist:
