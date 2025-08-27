@@ -1,0 +1,59 @@
+---
+export interface Item {
+  title: string;
+  subtitle?: string;
+  period?: string; // e.g., "2024 — present"
+  body?: string;   // plain text or light HTML
+}
+
+const { item, defaultOpen = false } = Astro.props as {
+  item: Item;
+  defaultOpen?: boolean;
+};
+---
+<style>
+  /* Smooth content reveal: animate max-height + opacity */
+  .content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 300ms ease, opacity 250ms ease;
+  }
+  details[open] .content {
+    /* plenty of headroom; we don't know exact height */
+    max-height: 36rem;
+    opacity: 1;
+  }
+</style>
+
+<details class="group py-1" {...(defaultOpen ? { open: true } : {})}>
+  <summary class="flex cursor-pointer items-center gap-1 list-none">
+    <div class="min-w-0">
+      <div class="flex items-baseline gap-2">
+        <h3 class="text-base md:text-lg font-semibold">{item.title}</h3>
+        {item.subtitle && <span class="text-slate/70">{item.subtitle}</span>}
+      </div>
+    </div>
+
+    <!-- caret -->
+    <svg
+      class="shrink-0 h-5 w-5 text-slate/70 transition-transform duration-300 group-open:rotate-180 font-black"
+      viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+    >
+      <path fill-rule="evenodd"
+        d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.06l3.71-2.83a.75.75 0 1 1 .92 1.18l-4.17 3.18a.75.75 0 0 1-.92 0L5.21 8.41a.75.75 0 0 1 .02-1.2z"
+        clip-rule="evenodd" />
+    </svg>
+  </summary>
+
+  <!-- body: period + description IMMEDIATELY below title -->
+  <div class="content">
+    <div class="text-sm text-slate/80 leading-relaxed">
+      {item.period && (
+        <p class="mt-1 text-xs md:text-sm text-slate/60">{item.period}</p>
+      )}
+      {item.body ? <div class="mt-2" set:html={item.body} /> : null}
+      <slot />
+    </div>
+  </div>
+</details>

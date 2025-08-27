@@ -1,26 +1,33 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Accordion from "../components/Accordion.astro";
+import { experiences } from "../data/experiences";
 ---
 <BaseLayout>
   <div class="flex gap-12 max-w-5xl mx-auto">
     <article class="prose prose-invert prose-slate flex-1">
-      <h1>about</h1>
+      <h1 class="text-5xl md:text-7xl">about</h1>
       <p>
         Short bio. What you enjoy building, a sentence on your values, and what you're exploring now.
       </p>
 
-      <h2>experience</h2>
-      <ul>
-        <li><strong>Production Engineer Fellow @ Meta</strong> — 2025 · one-liner impact</li>
-        <li><strong>Research @ UW Systems Lab</strong> — 2025–present · one-liner impact</li>
-      </ul>
+      <div class="mt-16">
+        <h2 class="underline decoration-white/10 underline-offset-4">experience</h2>
+        <div class="space-y-1">
+          {experiences.map((experience) => (
+            <Accordion item={experience} />
+          ))}
+        </div>
+      </div>
 
-      <h2>elsewhere</h2>
-      <p>
-        <a href="mailto:peichi1@uw.edu">Email</a> ·
-        <a href="https://github.com/perryz0">GitHub</a> ·
-        <a href="https://www.linkedin.com/in/peichi1">LinkedIn</a>
-      </p>
+      <div class="mt-16">
+        <h2 class="underline decoration-white/10 underline-offset-4">elsewhere</h2>
+        <p>
+          <a href="mailto:peichi1@uw.edu">Email</a> ·
+          <a href="https://github.com/perryz0">GitHub</a> ·
+          <a href="https://www.linkedin.com/in/peichi1">LinkedIn</a>
+        </p>
+      </div>
     </article>
     
     <div class="flex-shrink-0 hidden md:block">
