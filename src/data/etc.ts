@@ -3,7 +3,7 @@ import type { Item } from '../components/Accordion.astro';
 export const etcItems: Item[] = [
   {
     title: "hikes and excursions",
-    body: "Idk what to say yet"
+    body: "Idk what to say yet, but email me some recs LOL"
   },
   {
     title: "sports",
@@ -11,7 +11,7 @@ export const etcItems: Item[] = [
   },
   {
     title: "techno",
-    body: "Learning to make some noise, should be loud"
+    body: "Learning to make signals and noise~"
   },
   {
     title: "asia",
