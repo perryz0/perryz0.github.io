@@ -11,12 +11,12 @@ export const experiences: Item[] = [
         title: "Production Engineer Fellow",
         subtitle: "@ Meta",
         // period: "2025",
-        body: "Keeping large-scale systems fast, reliable, and fun (Summer 2025)"
+        body: "Keeping production systems fast, reliable + fun (Summer 2025)"
     },
     {
         title: "Research",
         subtitle: "@ UW Systems Lab", 
         // period: "2025–present",
-        body: "Making distributed schedulers smarter and more programmable (May 2025 - Present)"
+        body: "Making distributed schedulers smarter + more programmable (May 2025 - Present)"
     }
 ];
