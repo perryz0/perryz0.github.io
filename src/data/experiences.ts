@@ -2,10 +2,16 @@ import type { Item } from '../components/Accordion.astro';
 
 export const experiences: Item[] = [
     {
-        title: "Incoming Software Engineer Intern",
+        title: "Software Engineer Intern",
         subtitle: "@ Tesla",
         // period: "2025",
-        body: "Build some tools + agents for a communications platform (Winter 2026)"
+        body: "Building the memory layer for a coding agent (Winter 2026)"
+    },
+    {
+        title: "Software Engineer Intern",
+        subtitle: "@ Amazon Web Services",
+        // period: "2025",
+        body: "Analyzing monthly cloud usage + charging customers (Fall 2025)"
     },
     {
         title: "Production Engineer Fellow",
